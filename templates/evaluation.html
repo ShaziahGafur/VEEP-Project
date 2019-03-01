@@ -1,0 +1,41 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ item.warehousenum }}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  </head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">reBOOT Canada Database</a>
+    </div>
+  </nav>
+
+  <body>
+    <div class="container">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Items</a></li>
+        <li class="breadcrumb-item active">{{ items.warehousenum }}</li>
+      </ol>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Warehouse Number</th>
+            <th>Invoice Number</th>
+            <th>Manufacturer</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td class = 'aligh_middle'>{{ items.warehousenum }}</td>
+              <td class = 'aligh_middle'>{{ items.invoicenum }}</td>
+              <td class = 'align-middle'>{{ items.manufacturer }}</td>
+              <td class = 'align-middle'>{{ items.item_type }}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

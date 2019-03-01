@@ -1,0 +1,51 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>reBOOT Database</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">reBOOT Canada Database</a>
+      </div>
+    </nav>
+
+
+    <div class="container">
+        <ol class="breadcrumb my-4">
+          <li class="breadcrumb-item active">Items</li>
+        </ol>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Item</th>
+              <th>Donor</th>
+              <th>Type</th>
+              <th>Test</th>
+              <th>Evaluation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in items %}
+              <tr>
+                <td>
+
+                  <a href="{% url 'items_evaluation' item.pk %}">{{ item.warehousenum }}</a>
+
+                  <small class = "text-muted d-block">{{ item.invoicenum }}</small>
+                </td>
+                <td class = 'align-middle'></td>
+                <td class = 'align-middle'></td>
+                <td class = 'align-middle'></td>
+                <td class = 'align-middle'></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </body>
+  </html>
